@@ -1,0 +1,67 @@
+{% extends 'admin/index.html.twig' %}
+{% block admin %}
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+
+
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Liste des produits</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							{% for message in app.flashes('info') %}
+								<div class="alert alert-success">
+									{{ message }}
+								</div>
+							{% endfor %}
+
+							<table class="table">
+								<thead>
+									<tr>
+										
+										<th>Produit</th>
+										<th>Quantite</th>
+										<th>Prix de vente</th>
+										<th>Prix Achat</th>
+										<th>Action</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									{% for product in products %}
+										<tr>
+											
+											<td>{{ product.label }}</td>
+											<td>{{ product.quantity }}</td>
+											<td>{{ product.sellingPrice }}</td>
+											<td>{{ product.purchasePrice }}</td>
+											
+
+											<td>
+												<a href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+												<a href="{{ path('supprimer_produit', {'id': product.id}) }}">supprimer</a>
+												
+											</td>
+										</tr>
+									{% else %}
+										<tr>
+											<td colspan="15">no records found</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container-fluid -->
+	</section>
+{% endblock %}

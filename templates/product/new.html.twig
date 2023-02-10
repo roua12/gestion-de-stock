@@ -1,0 +1,35 @@
+
+{% extends 'admin/index.html.twig' %}
+{% block admin %}
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+
+
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Ajouter un Produit</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							{{ form_start(form) }}
+							{{ form_widget(form) }}
+							<button type="submit" class='btn btn-sm mt-5 btn-success'>
+								Ajouter
+							</button>
+							{{ form_end(form) }}
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container-fluid -->
+	</section>
+
+{% endblock %}
